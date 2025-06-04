@@ -31,7 +31,6 @@ body {
 
 header {
   background-color: var(--header-bg);
-  box-shadow: var(--shadow);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -65,9 +64,34 @@ header {
   flex-shrink: 0;
 }
 
-#toggle-mode:hover {
+#toggle-mode,
+.hamburger {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.6em 1em;
+  border-radius: 8px;
+  font-size: 1.3em;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+#toggle-mode:hover,
+.hamburger:hover {
   background-color: var(--accent-light);
   transform: translateY(-2px);
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.toggle-controls {
+  display: flex;
+  gap: 0.5em;
 }
 
 .toggle-wrapper {
@@ -78,11 +102,10 @@ header {
 .nav-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 0.6em;
   list-style: none;
+  margin: 0;
   padding: 0;
-  margin: 0 auto;
 }
 
 .nav-list li a {
@@ -96,35 +119,45 @@ header {
   box-shadow: var(--shadow);
 }
 
+.nav-list li a.active,
 .nav-list li a:hover {
   background-color: var(--accent-light);
   transform: translateY(-2px);
 }
 
 .navbar {
-  max-width: 1200px;
-  margin: 0 auto;
+  background-color: var(--header-bg);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   padding: 1em 1.5em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
+
 }
 
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+
 .site-title {
-  font-size: 2em;
+  font-size: 1.8em;
   font-weight: 700;
   color: var(--text-color);
   margin: 0;
-  text-align: center;
 }
 
 .nav-container {
-  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  position: relative;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+
+
 }
 
 .nav-wrapper {
@@ -135,7 +168,6 @@ header {
   flex-wrap: wrap;
   gap: 1em;
 }
-
 
 main {
   padding: 2.5em 1.5em;
@@ -184,11 +216,6 @@ footer {
 
 .hamburger {
   display: none;
-  background: none;
-  font-size: 2em;
-  border: none;
-  color: var(--text-color);
-  cursor: pointer;
 }
 
 @media (max-width: 1000px) {
@@ -201,43 +228,25 @@ footer {
     display: none;
     flex-direction: column;
     align-items: flex-end;
-    width: 100%;
     margin-top: 1em;
-    gap: 0.5em;
+    gap: 1.5em;
   }
 
   .nav-list.show {
     display: flex;
   }
 
+  .nav-controls {
+    align-self: flex-end;
+    margin-top: 0.5em;
+    margin-top: 1em;
+  }
+
   .hamburger {
     display: block;
   }
 
-  .toggle-wrapper {
-    margin-top: 0.5em;
-  }
-
-  .nav-list li {
-    width: auto;
-  }
-
-  #toggle-mode {
-    padding: 0.4em 1em;
-    font-size: 1.3em;
-    background-color: var(--accent-color);
-    border: none;
-    border-radius: 8px;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-
-  #toggle-mode:hover {
-    background-color: var(--accent-light);
-  }
 }
-
 
 .hero-image {
   position: relative;
